@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <h1>Edytuj firmę</h1>
+
+        <h:form id="personform">
+            <h:panelGrid columns="3">
+
+                <h:outputText value="#{msg.name}" />
+                <h:inputText id="name" value="#{companyWeb.company.name}" size="30">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:messages for="name" style="color:red" />
+
+                <h:outputText value="#{msg.adress}" />
+                <h:inputText id="adress" value="#{companyWeb.company.adress}" size="80" >
+                    <f:validateRequired />
+                </h:inputText>
+                <h:messages for="adress" style="color:red" />
+
+                <h:outputText value="#{msg.telephone}" />
+                <h:inputText id="telephone" value="#{companyWeb.company.telephone}" size="50" >
+                    <f:validateRequired />
+                </h:inputText>
+                <h:messages for="telephone" style="color:red" />
+            </h:panelGrid>
+            <p>
+                <h:commandButton value="#{msg.save}" action="#{companyWeb.merge}" />
+            </p>
+        </h:form>
+    </ui:define>
+</ui:composition>
